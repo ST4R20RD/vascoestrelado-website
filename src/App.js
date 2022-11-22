@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import "./App.css";
-import { Navbar } from "./components";
+import { Navbar, Contents } from "./components";
 
 function App() {
   return (
     <AppContainer>
+      <Contents />
       <Navbar />
     </AppContainer>
   );
