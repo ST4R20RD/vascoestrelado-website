@@ -1,27 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Grid1, Grid2, Grid3, Grid4, Grid5, Grid6, Grid7, Grid8 } from "./Grids";
 
 export function Contents() {
+  const [randomGrid, setRandomGrid] = useState(1);
+
+  const pickRandom = () => {
+    const array = [1, 2, 3, 4, 5, 6, 7, 8];
+    console.log(array[Math.floor(Math.random() * array.length)]);
+    return setRandomGrid(array[Math.floor(Math.random() * array.length)]);
+  };
+
+  useEffect(() => {
+    pickRandom();
+  }, []);
+
   return (
     <Container>
-      <Tile gridColumn={1} gridColumnSpan={12} gridRow={1} gridRowSpan={8}>
-        <img src="/images/car1.jpg" alt="car" />
-      </Tile>
-      <Tile gridColumn={19} gridColumnSpan={6} gridRow={5} gridRowSpan={4}>
-        <img src="/images/car2.jpg" alt="car" />
-      </Tile>
-      <Tile gridColumn={13} gridColumnSpan={6} gridRow={5} gridRowSpan={4}>
-        <img src="/images/car3.jpg" alt="car" />
-      </Tile>
-      <Tile gridColumn={1} gridColumnSpan={12} gridRow={9} gridRowSpan={4}>
-        <img src="/images/car4.jpg" alt="car" />
-      </Tile>
-      <Tile gridColumn={13} gridColumnSpan={12} gridRow={1} gridRowSpan={4}>
-        <img src="/images/car5.jpg" alt="car" />
-      </Tile>
-      <Tile gridColumn={13} gridColumnSpan={12} gridRow={9} gridRowSpan={4}>
-        <img src="/images/car6.jpg" alt="car" />
-      </Tile>
+      {randomGrid === 1 && <Grid1 />}
+      {randomGrid === 2 && <Grid2 />}
+      {randomGrid === 3 && <Grid3 />}
+      {randomGrid === 4 && <Grid4 />}
+      {randomGrid === 5 && <Grid5 />}
+      {randomGrid === 6 && <Grid6 />}
+      {randomGrid === 7 && <Grid7 />}
+      {randomGrid === 8 && <Grid8 />}
     </Container>
   );
 }
@@ -29,31 +32,6 @@ export function Contents() {
 const ROWS = 12;
 const COLUMNS = 24;
 const GAP = "0.5rem";
-
-const Tile = styled.div`
-  ${({ gridColumn, gridColumnSpan, gridRow, gridRowSpan }) => {
-    return `
-    grid-column: ${gridColumn} / span ${gridColumnSpan};
-    grid-row: ${gridRow} / span ${gridRowSpan};
-    `;
-  }}
-  overflow: hidden;
-  img {
-    filter: grayscale(100%);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-    transform-origin: 50% 50%;
-    :hover {
-      width: 100%;
-      filter: grayscale(0%);
-      transition: filter 1s ease;
-      transform: scale(1.05);
-      transition: transform 0.5s ease;
-    }
-  }
-`;
 
 const Container = styled.div`
   display: grid;
