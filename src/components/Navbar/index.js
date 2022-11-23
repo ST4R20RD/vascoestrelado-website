@@ -26,7 +26,7 @@ const Container = styled.div`
   width: 100vw;
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   margin-bottom: 20px;
   ${({ position }) => {
     if (position === "bottom") {
