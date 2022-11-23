@@ -66,12 +66,14 @@ const Article = styled.article`
 `;
 
 const ProfilePic = styled.div`
-  text-align: right;
+  text-align: center;
   margin-right: 30px;
   img {
     border-radius: 20px;
     height: 150px;
   }
+  font-family: "Brush Script MT", "cursive";
+  font-size: 20px;
 `;
 
 const ProfilePhotographer = styled.div`

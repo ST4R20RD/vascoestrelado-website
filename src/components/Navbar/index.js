@@ -1,23 +1,48 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { BsFacebook, BsYoutube } from "react-icons/bs";
+import { RiInstagramFill } from "react-icons/ri";
 
 export function Navbar({ position }) {
   return (
     <Container position={position}>
-      <Link to="/">
-        <Logo src="./images/vascoLogo.png" alt="logo" />
-      </Link>
-      <Menu>
-        <li>Before and After</li>
-        <li>Automotive</li>
-        <li>Escola</li>
-        <li>Adobe</li>
-        <Link to="/Profile">
-          <li>Profile</li>
+      <MenuWrapper>
+        <Link to="/">
+          <Logo src="./images/vascoLogo.png" alt="logo" />
         </Link>
-        <li>Contact</li>
-      </Menu>
+        <Menu>
+          <li>Before and After</li>
+          <li>Automotive</li>
+          <a target="_blank" href="https://vascoestrelado.teachable.com/" rel="noreferrer">
+            <li>Escola</li>
+          </a>
+          <li>Adobe</li>
+          <Link to="/Profile">
+            <li>Profile</li>
+          </Link>
+          <li>Contact</li>
+        </Menu>
+      </MenuWrapper>
+      <Socials>
+        <a
+          target="_blank"
+          href="https://www.facebook.com/vascoestrelado.photographer"
+          rel="noreferrer"
+        >
+          <BsFacebook />
+        </a>
+        <a
+          target="_blank"
+          href="https://www.instagram.com/vasco_estrelado_photographer/"
+          rel="noreferrer"
+        >
+          <RiInstagramFill />
+        </a>
+        <a target="_blank" href="https://www.youtube.com/@VascoEstrelado" rel="noreferrer">
+          <BsYoutube />
+        </a>
+      </Socials>
     </Container>
   );
 }
@@ -26,6 +51,7 @@ const Container = styled.div`
   width: 100vw;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.6);
   margin-bottom: 20px;
   ${({ position }) => {
@@ -40,6 +66,10 @@ const Container = styled.div`
       `;
     }
   }}
+`;
+
+const MenuWrapper = styled.div`
+  display: flex;
 `;
 
 const Logo = styled.img`
@@ -68,4 +98,13 @@ const Menu = styled.ul`
     text-decoration: none;
     color: white;
   }
+`;
+
+const Socials = styled.div`
+  font-size: 30px;
+  a {
+    color: #ffbd2e;
+    padding: 10px;
+  }
+  margin-right: 20px;
 `;
