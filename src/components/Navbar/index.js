@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { BsFacebook, BsYoutube } from "react-icons/bs";
-import { RiInstagramFill } from "react-icons/ri";
 import { Contact, Modal } from "../index";
+import SocialLinks from "./SocialLinks";
+import MenuItems from "./MenuItems";
 
 export function Navbar({ position }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,37 +19,11 @@ export function Navbar({ position }) {
           <Logo src="./images/vascoLogo.png" alt="logo" />
         </Link>
         <Menu>
-          <li>Before and After</li>
-          <li>Automotive</li>
-          <a target="_blank" href="https://vascoestrelado.teachable.com/" rel="noreferrer">
-            <li>Escola</li>
-          </a>
-          <li>Adobe</li>
-          <Link to="/Profile">
-            <li>Profile</li>
-          </Link>
+          <MenuItems />
         </Menu>
       </MenuWrapper>
       <Socials>
-        <div>
-          <a
-            target="_blank"
-            href="https://www.facebook.com/vascoestrelado.photographer"
-            rel="noreferrer"
-          >
-            <BsFacebook />
-          </a>
-          <a
-            target="_blank"
-            href="https://www.instagram.com/vasco_estrelado_photographer/"
-            rel="noreferrer"
-          >
-            <RiInstagramFill />
-          </a>
-          <a target="_blank" href="https://www.youtube.com/@VascoEstrelado" rel="noreferrer">
-            <BsYoutube />
-          </a>
-        </div>
+        <SocialLinks />
         <ContactBtn onClick={openContact}>Contact</ContactBtn>
       </Socials>
       {isOpen && (
