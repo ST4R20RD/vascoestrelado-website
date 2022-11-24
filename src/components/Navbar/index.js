@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { BsFacebook, BsYoutube } from "react-icons/bs";
 import { RiInstagramFill } from "react-icons/ri";
+import { Contact, Modal } from "../index";
 
 export function Navbar({ position }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openContact = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <Container position={position}>
       <MenuWrapper>
@@ -21,28 +28,35 @@ export function Navbar({ position }) {
           <Link to="/Profile">
             <li>Profile</li>
           </Link>
-          <li>Contact</li>
         </Menu>
       </MenuWrapper>
       <Socials>
-        <a
-          target="_blank"
-          href="https://www.facebook.com/vascoestrelado.photographer"
-          rel="noreferrer"
-        >
-          <BsFacebook />
-        </a>
-        <a
-          target="_blank"
-          href="https://www.instagram.com/vasco_estrelado_photographer/"
-          rel="noreferrer"
-        >
-          <RiInstagramFill />
-        </a>
-        <a target="_blank" href="https://www.youtube.com/@VascoEstrelado" rel="noreferrer">
-          <BsYoutube />
-        </a>
+        <div>
+          <a
+            target="_blank"
+            href="https://www.facebook.com/vascoestrelado.photographer"
+            rel="noreferrer"
+          >
+            <BsFacebook />
+          </a>
+          <a
+            target="_blank"
+            href="https://www.instagram.com/vasco_estrelado_photographer/"
+            rel="noreferrer"
+          >
+            <RiInstagramFill />
+          </a>
+          <a target="_blank" href="https://www.youtube.com/@VascoEstrelado" rel="noreferrer">
+            <BsYoutube />
+          </a>
+        </div>
+        <ContactBtn onClick={openContact}>Contact</ContactBtn>
       </Socials>
+      {isOpen && (
+        <Modal setIsOpen={setIsOpen}>
+          <Contact />
+        </Modal>
+      )}
     </Container>
   );
 }
@@ -101,10 +115,22 @@ const Menu = styled.ul`
 `;
 
 const Socials = styled.div`
+  display: flex;
+  flex-direction: column;
   font-size: 30px;
   a {
     color: #ffbd2e;
     padding: 10px;
   }
   margin-right: 20px;
+`;
+
+const ContactBtn = styled.button`
+  color: black;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: orange;
 `;
