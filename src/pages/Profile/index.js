@@ -57,7 +57,7 @@ const Block = styled.div`
   justify-content: space-around;
   background-color: rgba(20, 20, 20, 0.7);
   border-radius: 20px;
-  padding: 20px;
+  padding: 5px 10px;
   margin-bottom: 20px;
 `;
 

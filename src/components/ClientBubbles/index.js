@@ -104,8 +104,9 @@ export function ClientBubbles() {
 }
 
 const Container = styled.div`
-  max-width: 95%;
+  max-width: 100%;
   padding: 20px;
+  border-radius: 20px;
 `;
 
 const Slide = styled.div`

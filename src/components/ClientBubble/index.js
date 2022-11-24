@@ -22,10 +22,9 @@ export function ClientBubble({ picSrc, name, career, quote, message }) {
 }
 
 const Container = styled.div`
-  border: 1px solid black;
   border-radius: 20px;
   padding: 20px;
-  margin: auto;
+  margin: 0 10px;
   min-height: 360px;
   background-color: rgba(0, 0, 0, 0.3);
   :hover {
