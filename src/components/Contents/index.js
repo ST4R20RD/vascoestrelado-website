@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Grid1, Grid2, Grid3, Grid4, Grid5, Grid6, Grid7, Grid8 } from "./Grids";
+import {
+  Grid1,
+  Grid2,
+  Grid3,
+  Grid4,
+  Grid5,
+  Grid6,
+  Grid7,
+  Grid8,
+} from "./Grids";
 
 export function Contents() {
   const [randomGrid, setRandomGrid] = useState(1);
