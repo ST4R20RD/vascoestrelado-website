@@ -27,11 +27,20 @@ export function Contact() {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
-        render={({ touched, errors, values, handleChange, handleBlur, handleSubmit }) => (
+        render={({
+          touched,
+          errors,
+          values,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+        }) => (
           <Form onSubmit={handleSubmit}>
             <Label>
               First Name <Text>*</Text>
-              {touched.firstName && errors.firstName && <Text>{errors.firstName}</Text>}
+              {touched.firstName && errors.firstName && (
+                <Text>{errors.firstName}</Text>
+              )}
               <Field
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -44,7 +53,9 @@ export function Contact() {
             </Label>
             <Label>
               Last Name <Text>*</Text>
-              {touched.lastName && errors.lastName && <Text>{errors.lastName}</Text>}
+              {touched.lastName && errors.lastName && (
+                <Text>{errors.lastName}</Text>
+              )}
               <Field
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -70,7 +81,9 @@ export function Contact() {
             </Label>
             <Label>
               Subject <Text>*</Text>
-              {touched.subject && errors.subject && <Text>{errors.subject}</Text>}
+              {touched.subject && errors.subject && (
+                <Text>{errors.subject}</Text>
+              )}
               <Field
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -83,7 +96,9 @@ export function Contact() {
             </Label>
             <Label>
               Message <Text>*</Text>
-              {touched.message && errors.message && <Text>{errors.message}</Text>}
+              {touched.message && errors.message && (
+                <Text>{errors.message}</Text>
+              )}
               <FieldArea
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -104,6 +119,9 @@ export function Contact() {
 
 const Container = styled.div`
   width: 50%;
+  padding: 10px 13px 10px 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.8);
 `;
 
 const Field = styled.input`
