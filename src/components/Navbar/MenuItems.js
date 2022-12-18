@@ -1,20 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 function MenuItems() {
   return (
     <>
       <li>Before and After</li>
       <li>Automotive</li>
-      <a target="_blank" href="https://vascoestrelado.teachable.com/" rel="noreferrer">
+      <a
+        target="_blank"
+        href="https://vascoestrelado.teachable.com/"
+        rel="noreferrer"
+      >
         <li>Escola</li>
       </a>
       <li>Adobe</li>
-      <Link to="/Profile">
+      <LinkElem to="/Profile">
         <li>Profile</li>
-      </Link>
+      </LinkElem>
     </>
   );
 }
+
+const LinkElem = styled(NavLink)`
+  &.active {
+    li {
+      color: #ffbd2e;
+      border-bottom: 1px solid white;
+    }
+  }
+`;
 
 export default MenuItems;
